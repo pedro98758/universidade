@@ -24,6 +24,22 @@ class Aluno:
             self.endereco
         )
         db.execute_query(query, values)
+        
+    def listar(db: MySQL):
+        query = """
+            SELECT 
+                id, 
+                nome,
+                cpf,
+                email, 
+                telefone, 
+                endereco, 
+                matricula
+            FROM 
+                alunos;
+        """
+        return db.execute_query(query)
+    
     def editar(self):
         pass
     def transferir(self):

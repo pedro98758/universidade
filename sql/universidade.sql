@@ -10,3 +10,13 @@ CREATE TABLE alunos(
     endereco VARCHAR(250),
     matricula BOOLEAN DEFAULT TRUE
 );
+
+SELECT 
+    id, 
+    nome, 
+    email, 
+    telefone, 
+    endereco, 
+    matricula
+FROM 
+    alunos;

@@ -22,13 +22,14 @@ class MySQL:
             self.connection.close()
             self.connection = None
 
-    def execute_query(self, query, parameters):
+    def execute_query(self, query, parameters=None):
         with self.connection.cursor() as cursor:
             try:
                 cursor.execute(query, parameters)
             except Exception as e:
                 self.connection.rollback()
                 print(f"Error on execute query: {e}")
+                raise e
             else:
                 if cursor.description:
                     return cursor.fetchall()
